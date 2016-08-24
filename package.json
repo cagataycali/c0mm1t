@@ -1,0 +1,30 @@
+{
+  "name": "c0mm1t",
+  "version": "1.0.0",
+  "description": "Git commit easily",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cagataycali/c0mm1t.git"
+  },
+  "keywords": [
+    "Git",
+    "git",
+    "commit",
+    "node"
+  ],
+  "author": "Çağatay Çalı",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cagataycali/c0mm1t/issues"
+  },
+  "homepage": "https://github.com/cagataycali/c0mm1t#readme",
+  "dependencies": {
+    "1n1t": "^1.0.9",
+    "3x3c": "^1.0.1",
+    "async": "^2.0.1"
+  }
+}
