@@ -7,7 +7,7 @@ module.exports = function (message) {
    I()
    .then((value) => {
      console.log(value);
-     E(`git add . && git commit -m "${message}" && git push origin ${value}`)
+     E(`git add . && git commit -m "${message}" && git push origin "${value}"`)
        .then((value) => {resolve(value);})
        .catch((err) => {reject(err);})
    })
