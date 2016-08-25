@@ -25,6 +25,7 @@
   "dependencies": {
     "1n1t": "^1.0.9",
     "3x3c": "^1.0.1",
-    "async": "^2.0.1"
+    "async": "^2.0.1",
+    "update-notifier": "^1.0.2"
   }
 }
