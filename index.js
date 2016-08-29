@@ -5,18 +5,11 @@ var updateNotifier = require('update-notifier');
 var pkg = require('./package.json');
 updateNotifier({pkg}).notify();
 
-module.exports = function (message, branch) {
+module.exports = function (message) {
  return new Promise(function(resolve, reject) {
    I()
    .then((value) => {
-     console.log(value);
-     var commitBranch;
-     if (branch) {
-       commitBranch = branch;
-     } else {
-       commitBranch = value.trim();
-     }
-     E(`git add . && git commit -m "${message}" && git push origin "${commitBranch}"`)
+     E(`git add . && git commit -m "${message}" && git push origin "${value.trim()}"`)
        .then((value) => {resolve(value);})
        .catch((err) => {reject(err);})
    })
