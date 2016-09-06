@@ -23,9 +23,10 @@
   },
   "homepage": "https://github.com/cagataycali/c0mm1t#readme",
   "dependencies": {
-    "1n1t": "^1.0.9",
-    "3x3c": "^1.0.1",
+    "1n1t": "^1.0.14",
+    "3x3c": "^1.0.2",
     "async": "^2.0.1",
+    "m4g1c": "^1.0.7",
     "update-notifier": "^1.0.2"
   }
 }

@@ -9,9 +9,25 @@ module.exports = function (message) {
  return new Promise(function(resolve, reject) {
    I()
    .then((value) => {
-     E(`git add . && git commit -m "${message}" && git push origin "${value.trim()}"`)
-       .then((value) => {resolve(value);})
-       .catch((err) => {reject(err);})
+     var premoji = '';
+      E('git remote show origin')
+        .then((value) => {
+          if (value.indexOf('github.com') !== -1) {
+            premoji = ':octocat: '
+          }
+          m4g1c(program.message, false)
+            .then((emojis) => {
+              E(`git add . && git commit -m "${premoji} ${message} ${emojis}" && git push origin "${value.trim()}"`)
+                .then((value) => {resolve(value);})
+                .catch((err) => {reject(err);})
+            })
+            .catch((err) => {
+              reject(err);
+            })
+        })
+        .catch((err) => {
+          reject(err);
+        });
    })
    .catch((err) => {reject(err);})
  });
