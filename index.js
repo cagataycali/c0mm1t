@@ -12,14 +12,14 @@ module.exports = function (message) {
    .then((value) => {
      var premoji = '';
       E('git remote show origin')
-        .then((value) => {
-          if (value.indexOf('github.com') !== -1) {
+        .then((origin) => {
+          if (origin.indexOf('github.com') !== -1) {
             premoji = ':octocat: '
           }
           m4g1c(message, false)
             .then((emojis) => {
               E(`git add . && git commit -m "${premoji} ${message} ${emojis}" && git push origin "${value.trim()}"`)
-                .then((value) => {resolve(value);})
+                .then((output) => {resolve(output);})
                 .catch((err) => {reject(err);})
             })
             .catch((err) => {
