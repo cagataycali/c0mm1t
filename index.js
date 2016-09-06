@@ -16,7 +16,7 @@ module.exports = function (message) {
           if (value.indexOf('github.com') !== -1) {
             premoji = ':octocat: '
           }
-          m4g1c(program.message, false)
+          m4g1c(message, false)
             .then((emojis) => {
               E(`git add . && git commit -m "${premoji} ${message} ${emojis}" && git push origin "${value.trim()}"`)
                 .then((value) => {resolve(value);})
