@@ -39,7 +39,7 @@ function getCurrentBranch(callback) {
   .then((branch) => {
      console.log(' current branch is',branch);
      callback(null, branch)
-  }).catch((err) => {callback(null, null);})
+  }).catch((err) => {callback(err);})
 }
 
 function push(branch, callback) {
@@ -51,7 +51,7 @@ function push(branch, callback) {
 
 var remote = async.compose(push, getCurrentBranch, commit, emoji, checkRemote, add);
 remote('init', function (err, res, output) {
-  if (err) {console.log('Error', err)}
+  if (err) {console.log('Error', err);process.exit(1)}
   console.log(res);
 })
 
