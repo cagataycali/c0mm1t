@@ -13,7 +13,7 @@ function log(message) {
 }
 
 function errorLog(message) {
-  console.log(emoji.emojify(':zap:'), colors.red(message));
+  console.log(emoji.emojify(':shit:'), colors.red(message));
 }
 
 function add(message, callback) {
@@ -35,10 +35,6 @@ function checkRemote(message, callback) {
       }
       callback(null, {message: message, premoji: premoji});
     }).catch((err) => {errorLog(err);callback(err, null);});
-}
-
-function emoji(output, callback) {
-
 }
 
 function commit(message, callback) {
