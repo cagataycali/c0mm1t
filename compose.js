@@ -44,7 +44,7 @@ function getCurrentBranch(message, callback) {
 
 function push(branch, callback) {
   console.log('push', branch);
-  E(`git push origin "${branch}"`)
+  E(`git push origin "${branch.trim()}"`)
     .then((output) => {console.log('push worked');callback(null, branch)})
     .catch((err) => {callback(err, null);})
 }
