@@ -34,7 +34,7 @@ function commit(message, callback) {
     }).catch((err) => {callback(err, null);})
 }
 
-function getCurrentBranch(callback) {
+function getCurrentBranch(message, callback) {
   I()
   .then((branch) => {
      console.log(' current branch is',branch);
