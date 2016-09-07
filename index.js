@@ -45,7 +45,7 @@ function commit(message, callback) {
 
   m4g1c(message, false)
     .then((emojis) => {
-      log(`Your awesome commit message ${message + ' ' + emojis}`)
+      log(`Your awesome commit message ${message + ' ' + emoji.emojify(emojis)}`)
       E(`git commit -m "${message}"`)
         .then((output) => {
           callback(null, message);
