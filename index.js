@@ -38,18 +38,21 @@ function checkRemote(message, callback) {
 }
 
 function emoji(output, callback) {
-  m4g1c(output.message, false)
-    .then((emojis) => {
-      callback(null, output.premoji + output.message + ' ' + emojis)
-    }).catch((err) => {errorLog(err);callback(err, null);});
+
 }
 
 function commit(message, callback) {
-  log(`Your awesome commit message ${emoji.emojify(message)}`)
-  E(`git commit -m "${message}"`)
-    .then((output) => {
-      callback(null, message);
-    }).catch((err) => {errorLog(err);callback(err, null);})
+
+  m4g1c(message, false)
+    .then((emojis) => {
+      log(`Your awesome commit message ${message + ' ' + emojis}`)
+      E(`git commit -m "${message}"`)
+        .then((output) => {
+          callback(null, message);
+        })
+        .catch((err) => {errorLog(err);callback(err, null);})
+    })
+    .catch((err) => {errorLog(err);callback(err, null);})
 }
 
 function getCurrentBranch(message, callback) {
@@ -68,7 +71,7 @@ function push(branch, callback) {
 
 module.exports = function (message) {
  return new Promise(function(resolve, reject) {
-   var remote = async.compose(push, getCurrentBranch, commit,add);
+   var remote = async.compose(push, getCurrentBranch, commit, add);
    remote(message, function (err, res) {
      if (err) {reject(err);process.exit()}
      resolve(res);
