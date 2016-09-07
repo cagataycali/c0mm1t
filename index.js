@@ -27,16 +27,6 @@ function add(message, callback) {
     })
 }
 
-function checkRemote(message, callback) {
-  E('git remote show origin')
-    .then((origin) => {
-      if (origin.indexOf('github.com') !== -1) {
-        premoji = ':octocat: '
-      }
-      callback(null, {message: message, premoji: premoji});
-    }).catch((err) => {errorLog(err);callback(err, null);});
-}
-
 function commit(message, callback) {
 
   m4g1c(message, false)
