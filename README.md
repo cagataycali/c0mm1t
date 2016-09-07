@@ -12,5 +12,3 @@ C('Init')
   .then(function(value) {console.log(value)})
   .catch(function(err) {console.log(err)})
 ```
-
-Done!

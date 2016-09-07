@@ -9,7 +9,11 @@ var emoji = require('node-emoji');
 updateNotifier({pkg}).notify();
 
 function log(message) {
-  console.log(colors.green(':zap:'), message);
+  console.log(emoji.emojify(':zap:'), colors.cyan(message));
+}
+
+function errorLog(message) {
+  console.log(emoji.emojify(':zap:'), colors.red(message));
 }
 
 function add(message, callback) {
@@ -17,7 +21,10 @@ function add(message, callback) {
     .then((output) => {
       log('Git add');
       callback(null, message);
-    }).catch((err) => {callback(err, null);})
+    }).catch((err) => {
+      errorLog(err);
+      callback(err, null);
+    })
 }
 
 function checkRemote(message, callback) {
@@ -27,14 +34,14 @@ function checkRemote(message, callback) {
         premoji = ':octocat: '
       }
       callback(null, {message: message, premoji: premoji});
-    }).catch((err) => {callback(err, null);});
+    }).catch((err) => {errorLog(err);callback(err, null);});
 }
 
 function emoji(output, callback) {
   m4g1c(output.message, false)
     .then((emojis) => {
       callback(null, output.premoji + output.message + ' ' + emojis)
-    }).catch((err) => {callback(err, null);});
+    }).catch((err) => {errorLog(err);callback(err, null);});
 }
 
 function commit(message, callback) {
@@ -42,28 +49,28 @@ function commit(message, callback) {
   E(`git commit -m "${message}"`)
     .then((output) => {
       callback(null, message);
-    }).catch((err) => {callback(err, null);})
+    }).catch((err) => {errorLog(err);callback(err, null);})
 }
 
 function getCurrentBranch(message, callback) {
   I()
   .then((branch) => {
      callback(null, branch)
-  }).catch((err) => {callback(err);})
+  }).catch((err) => {errorLog(err);callback(err);})
 }
 
 function push(branch, callback) {
   log('You are pushing as', branch);
   E(`git push origin "${branch.trim()}"`)
     .then((output) => {callback(null, branch)})
-    .catch((err) => {callback(err, null);})
+    .catch((err) => {errorLog(err);callback(err, null);})
 }
 
 module.exports = function (message) {
  return new Promise(function(resolve, reject) {
-   var remote = async.compose(push, getCurrentBranch, commit, emoji, checkRemote, add);
+   var remote = async.compose(push, getCurrentBranch, commit,add);
    remote(message, function (err, res) {
-     if (err) {reject(err);} // TODO @cagatay bugsnag
+     if (err) {reject(err);process.exit()}
      resolve(res);
    })
  });
