@@ -63,7 +63,7 @@ function getCurrentBranch(message, callback) {
 }
 
 function push(branch, callback) {
-  log('You are pushing as', branch);
+  log(`You are pushing as: ${colors.green(branch.trim())}`);
   E(`git push origin "${branch.trim()}"`)
     .then((output) => {callback(null, branch)})
     .catch((err) => {errorLog(err);callback(err, null);})
