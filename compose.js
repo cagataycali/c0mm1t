@@ -51,7 +51,7 @@ function push(branch, callback) {
 
 var remote = async.compose(push, getCurrentBranch, commit, emoji, checkRemote, add);
 remote('init', function (err, res, output) {
-  if (err) {console.log('Error', err);process.exit(1)}
+  if (err) {console.log('Error', err)}
   console.log(res);
 })
 
