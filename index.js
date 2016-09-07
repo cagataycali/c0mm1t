@@ -28,7 +28,6 @@ function add(message, callback) {
 }
 
 function commit(message, callback) {
-
   m4g1c(message, false)
     .then((emojis) => {
       log(`Your awesome commit message: "${colors.green(message) + ' ' + emoji.emojify(emojis)}"`)
