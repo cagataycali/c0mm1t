@@ -36,14 +36,14 @@ function commit(message, callback) {
 
 function getCurrentBranch(callback) {
   I()
-  .then((value) => {
-     console.log(' current branch is',value);
-     callback(null, value)
+  .then((branch) => {
+     console.log(' current branch is',branch);
+     callback(null, branch)
   }).catch((err) => {callback(null, null);})
 }
 
 function push(branch, callback) {
-  console.log('push');
+  console.log('push', branch);
   E(`git push origin "${branch}"`)
     .then((output) => {console.log('push worked');callback(null, branch)})
     .catch((err) => {callback(err);})
