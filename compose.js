@@ -38,7 +38,7 @@ function getCurrentBranch(message, callback) {
   I()
   .then((branch) => {
      console.log(' current branch is',branch);
-     callback(branch)
+     callback(null, branch)
   }).catch((err) => {callback(err);})
 }
 
