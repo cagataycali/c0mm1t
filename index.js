@@ -19,7 +19,6 @@ function errorLog(message) {
 function add(message, callback) {
   E('git add .')
     .then((output) => {
-      log('Git add');
       callback(null, message);
     }).catch((err) => {
       errorLog(err);
