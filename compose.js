@@ -46,7 +46,7 @@ function push(branch, callback) {
   console.log('push', branch);
   E(`git push origin "${branch}"`)
     .then((output) => {console.log('push worked');callback(null, branch)})
-    .catch((err) => {callback(err);})
+    .catch((err) => {callback(err, null);})
 }
 
 var remote = async.compose(push, getCurrentBranch, commit, emoji, checkRemote, add);
