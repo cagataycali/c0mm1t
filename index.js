@@ -44,7 +44,7 @@ function getCurrentBranch(obj, callback) {
   .then((branch) => {
      var objWithBranch = {
        obj : obj,
-       branch: branch
+       branch: branch.trim()
      }
      console.log(objWithBranch);
      callback(null, objWithBranch)
