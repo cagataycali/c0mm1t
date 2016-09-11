@@ -52,11 +52,11 @@ function getCurrentBranch(obj, callback) {
 
 function push(obj, callback) {
   log(`You are pushing as: ${colors.green(obj.branch.trim())}`);
-  var cmd = `git push origin ${obj.obj.new ? '-u': ' '} "${branch.trim()}"`;
+  var cmd = `git push origin ${obj.obj.new ? '-u': ' '} "${obj.branch.trim()}"`;
   console.log(cmd);
-  E(cmd)
-    .then((output) => {callback(null, branch)})
-    .catch((err) => {errorLog(err);callback(err, null);})
+  // E(cmd)
+  //   .then((output) => {callback(null, branch)})
+  //   .catch((err) => {errorLog(err);callback(err, null);})
 }
 
 module.exports = function (obj) {
