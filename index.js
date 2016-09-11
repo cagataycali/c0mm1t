@@ -40,20 +40,25 @@ function commit(obj, callback) {
 }
 
 function getCurrentBranch(obj, callback) {
-  I()
-  .then((branch) => {
-     var objWithBranch = {
-       obj : obj,
-       branch: branch.trim()
-     }
-     callback(null, objWithBranch)
-  }).catch((err) => {errorLog(err);callback(err);})
+  if (obj.new) {
+    var objWithBranch = {
+      obj : obj,
+      branch: 'master'
+    }
+    callback(null, objWithBranch)
+  } else {
+    I()
+    .then((branch) => {
+      var objWithBranch = {
+        obj : obj,
+        branch: branch.trim()
+      }
+       callback(null, objWithBranch)
+    }).catch((err) => {errorLog(err);callback(err);})
+  }
 }
 
 function push(obj, callback) {
-  if (obj.obj.new) {
-    obj.branch = 'master';
-  }
   log(`You are pushing as ${obj.obj.new ? 'new repository init': ':'} ${colors.green(obj.branch.trim())}`);
   var cmd = `git push origin ${obj.obj.new ? '-u master': ''} "${obj.branch.trim()}"`;
   E(cmd)
