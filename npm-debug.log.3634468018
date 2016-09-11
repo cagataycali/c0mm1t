@@ -1,0 +1,108 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/Cellar/node/6.2.1/bin/node',
+1 verbose cli   '/Users/cagatay/.npm-packages/bin/npm',
+1 verbose cli   'publish' ]
+2 info using npm@3.9.5
+3 info using node@v6.2.1
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/cagatay/Apify/c0mm1t',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/cagatay/.npm/c0mm1t/1.0.28/package.tgz not in flight; packing
+9 verbose correctMkdir /Users/cagatay/.npm correctMkdir not in flight; initializing
+10 info lifecycle c0mm1t@1.0.28~prepublish: c0mm1t@1.0.28
+11 silly lifecycle c0mm1t@1.0.28~prepublish: no script for prepublish, continuing
+12 verbose tar pack [ '/Users/cagatay/.npm/c0mm1t/1.0.28/package.tgz',
+12 verbose tar pack   '/Users/cagatay/Apify/c0mm1t' ]
+13 verbose tarball /Users/cagatay/.npm/c0mm1t/1.0.28/package.tgz
+14 verbose folder /Users/cagatay/Apify/c0mm1t
+15 verbose addLocalTarball adding from inside cache /Users/cagatay/.npm/c0mm1t/1.0.28/package.tgz
+16 verbose correctMkdir /Users/cagatay/.npm correctMkdir not in flight; initializing
+17 silly cache afterAdd c0mm1t@1.0.28
+18 verbose afterAdd /Users/cagatay/.npm/c0mm1t/1.0.28/package/package.json not in flight; writing
+19 verbose correctMkdir /Users/cagatay/.npm correctMkdir not in flight; initializing
+20 verbose afterAdd /Users/cagatay/.npm/c0mm1t/1.0.28/package/package.json written
+21 silly publish { name: 'c0mm1t',
+21 silly publish   version: '1.0.28',
+21 silly publish   description: 'Git commit easily',
+21 silly publish   main: 'index.js',
+21 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+21 silly publish   repository:
+21 silly publish    { type: 'git',
+21 silly publish      url: 'git+https://github.com/cagataycali/c0mm1t.git' },
+21 silly publish   keywords: [ 'Git', 'git', 'commit', 'node' ],
+21 silly publish   author: { name: 'Çağatay Çalı' },
+21 silly publish   license: 'ISC',
+21 silly publish   bugs: { url: 'https://github.com/cagataycali/c0mm1t/issues' },
+21 silly publish   homepage: 'https://github.com/cagataycali/c0mm1t#readme',
+21 silly publish   dependencies:
+21 silly publish    { '1n1t': '^1.0.14',
+21 silly publish      '3x3c': '^1.0.2',
+21 silly publish      async: '^2.0.1',
+21 silly publish      colors: '^1.1.2',
+21 silly publish      m4g1c: '^1.0.7',
+21 silly publish      'node-emoji': '^1.4.0',
+21 silly publish      'update-notifier': '^1.0.2' },
+21 silly publish   readme: '# Installing\n\n```\nsudo npm i c0mm1t --save\n```\n\n# Using\n```\nvar C = require(\'c0mm1t\');\n\nC(\'Init\')\n  .then(function(value) {console.log(value)})\n  .catch(function(err) {console.log(err)})\n```\n',
+21 silly publish   readmeFilename: 'README.md',
+21 silly publish   gitHead: '45320c0fb896154223b89f29c406d3c985ddabc2',
+21 silly publish   _id: 'c0mm1t@1.0.28',
+21 silly publish   _shasum: '20b8b4f11197717b17013e95661f7b2e952f5f96',
+21 silly publish   _from: '.' }
+22 verbose getPublishConfig undefined
+23 silly mapToRegistry name c0mm1t
+24 silly mapToRegistry using default registry
+25 silly mapToRegistry registry https://registry.npmjs.org/
+26 silly mapToRegistry data Result {
+26 silly mapToRegistry   raw: 'c0mm1t',
+26 silly mapToRegistry   scope: null,
+26 silly mapToRegistry   name: 'c0mm1t',
+26 silly mapToRegistry   rawSpec: '',
+26 silly mapToRegistry   spec: 'latest',
+26 silly mapToRegistry   type: 'tag' }
+27 silly mapToRegistry uri https://registry.npmjs.org/c0mm1t
+28 verbose publish registryBase https://registry.npmjs.org/
+29 silly publish uploading /Users/cagatay/.npm/c0mm1t/1.0.28/package.tgz
+30 verbose request uri https://registry.npmjs.org/c0mm1t
+31 verbose request sending authorization for write operation
+32 info attempt registry request try #1 at 10:19:26 AM
+33 verbose request using bearer token for auth
+34 verbose request id 213437129fb78cfc
+35 http request PUT https://registry.npmjs.org/c0mm1t
+36 http 200 https://registry.npmjs.org/c0mm1t
+37 verbose headers { 'content-type': 'application/json',
+37 verbose headers   'content-encoding': 'gzip',
+37 verbose headers   'cache-control': 'max-age=300',
+37 verbose headers   'transfer-encoding': 'chunked',
+37 verbose headers   'accept-ranges': 'bytes',
+37 verbose headers   date: 'Sun, 11 Sep 2016 17:19:30 GMT',
+37 verbose headers   via: '1.1 varnish',
+37 verbose headers   connection: 'keep-alive',
+37 verbose headers   'x-served-by': 'cache-bma7028-BMA',
+37 verbose headers   'x-cache': 'MISS',
+37 verbose headers   'x-cache-hits': '0',
+37 verbose headers   'x-timer': 'S1473614367.644683,VS0,VE2451',
+37 verbose headers   vary: 'Accept-Encoding' }
+38 verbose request invalidating /Users/cagatay/.npm/registry.npmjs.org/c0mm1t on PUT
+39 info lifecycle c0mm1t@1.0.28~publish: c0mm1t@1.0.28
+40 verbose stack Error: write EPIPE
+40 verbose stack     at exports._errnoException (util.js:1007:11)
+40 verbose stack     at WriteWrap.afterWrite (net.js:793:14)
+41 verbose cwd /Users/cagatay/Apify/c0mm1t
+42 error Darwin 16.0.0
+43 error argv "/usr/local/Cellar/node/6.2.1/bin/node" "/Users/cagatay/.npm-packages/bin/npm" "publish"
+44 error node v6.2.1
+45 error npm  v3.9.5
+46 error code EPIPE
+47 error errno EPIPE
+48 error syscall write
+49 error write EPIPE
+50 error If you need help, you may report this error at:
+50 error     <https://github.com/npm/npm/issues>
+51 verbose exit [ 1, true ]
