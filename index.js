@@ -16,47 +16,53 @@ function errorLog(message) {
   console.log(emoji.emojify(':shit:'), colors.red(message));
 }
 
-function add(message, callback) {
+function add(obj, callback) {
   E('git add .')
     .then((output) => {
-      callback(null, message);
+      callback(null, obj);
     }).catch((err) => {
       errorLog(err);
       callback(err, null);
     })
 }
 
-function commit(message, callback) {
-  m4g1c(message, false)
+function commit(obj, callback) {
+  m4g1c(obj.message, false)
     .then((emojis) => {
-      log(`Your awesome commit message: ${colors.green(message) + ' ' + emoji.emojify(emojis)}`)
-      E(`git commit -m "${message} ${emoji.emojify(emojis)}"`)
+      log(`Your awesome commit message: ${colors.green(obj.message) + ' ' + emoji.emojify(emojis)}`)
+      E(`git commit -m "${emoji.emojify(obj.message)} ${emoji.emojify(emojis)}"`)
         .then((output) => {
-          callback(null, message);
+          callback(null, obj);
         })
         .catch((err) => {errorLog(err);callback(err, null);})
     })
     .catch((err) => {errorLog(err);callback(err, null);})
 }
 
-function getCurrentBranch(message, callback) {
+function getCurrentBranch(obj, callback) {
+  console.log('current',obj);
   I()
   .then((branch) => {
-     callback(null, branch)
+     var objWithBranch = {
+       obj : obj,
+       branch: branch
+     }
+     callback(null, objWithBranch)
   }).catch((err) => {errorLog(err);callback(err);})
 }
 
-function push(branch, callback) {
-  log(`You are pushing as: ${colors.green(branch.trim())}`);
-  E(`git push origin "${branch.trim()}"`)
+function push(obj, callback) {
+  log(`You are pushing as: ${colors.green(obj.branch.trim())}`);
+  var cmd = `git push origin ${obj.obj.new ? '-u': ' '} "${branch.trim()}"`;
+  E(cmd)
     .then((output) => {callback(null, branch)})
     .catch((err) => {errorLog(err);callback(err, null);})
 }
 
-module.exports = function (message) {
+module.exports = function (obj) {
  return new Promise(function(resolve, reject) {
    var remote = async.compose(push, getCurrentBranch, commit, add);
-   remote(message, function (err, res) {
+   remote(obj, function (err, res) {
      if (err) {reject(err);process.exit()}
      resolve(res);
    })
