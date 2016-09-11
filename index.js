@@ -61,10 +61,10 @@ function getCurrentBranch(obj, callback) {
 function push(obj, callback) {
   log(`You are pushing as ${obj.obj.new ? 'new repository init': ':'} ${colors.green(obj.branch.trim())}`);
   var cmd = `git push origin ${obj.obj.new ? '-u master' : obj.branch}`;
-  console.log(cmd);
-  // E(cmd)
-  //   .then((output) => {callback(null, obj.branch)})
-  //   .catch((err) => {errorLog(err);callback(err, null);})
+  // console.log(cmd);
+  E(cmd)
+    .then((output) => {callback(null, obj.branch)})
+    .catch((err) => {errorLog(err);callback(err, null);})
 }
 
 module.exports = function (obj) {
