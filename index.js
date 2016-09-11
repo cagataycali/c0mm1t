@@ -47,15 +47,16 @@ function getCurrentBranch(obj, callback) {
     }
     callback(null, objWithBranch)
   } else {
-    I()
-    .then((branch) => {
-      var objWithBranch = {
-        obj : obj,
-        branch: branch.trim()
-      }
-       callback(null, objWithBranch)
-    }).catch((err) => {errorLog(err);callback(err);})
-  }
+    B()
+      .then((branch) => {
+        var objWithBranch = {
+          obj : obj,
+          branch: branch.trim()
+        }
+         callback(null, objWithBranch)
+      })
+      .catch((err) => {errorLog(err);callback(err);})
+   }
 }
 
 function push(obj, callback) {
