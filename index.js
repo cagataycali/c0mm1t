@@ -40,13 +40,13 @@ function commit(obj, callback) {
 }
 
 function getCurrentBranch(obj, callback) {
-  console.log('current',obj);
   I()
   .then((branch) => {
      var objWithBranch = {
        obj : obj,
        branch: branch
      }
+     console.log(objWithBranch);
      callback(null, objWithBranch)
   }).catch((err) => {errorLog(err);callback(err);})
 }
