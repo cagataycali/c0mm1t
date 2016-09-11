@@ -1,6 +1,7 @@
 var async = require('async');
 var E = require('3x3c');
 var m4g1c = require('m4g1c');
+var B = require('br4nch');
 var I = require('1n1t');
 var colors = require('colors');
 var updateNotifier = require('update-notifier');
