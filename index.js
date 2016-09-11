@@ -60,7 +60,7 @@ function getCurrentBranch(obj, callback) {
 
 function push(obj, callback) {
   log(`You are pushing as ${obj.obj.new ? 'new repository init': ':'} ${colors.green(obj.branch.trim())}`);
-  var cmd = `git push  ${obj.obj.new ? '-u origin master': 'origin "${obj.branch.trim()}"'} `;
+  var cmd = `git push ${obj.obj.new ? '-u origin master': 'origin "${obj.branch.trim()}"'} `;
   console.log(cmd);
   // E(cmd)
   //   .then((output) => {callback(null, branch)})
