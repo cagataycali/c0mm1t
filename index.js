@@ -65,7 +65,7 @@ function push(obj, callback) {
     log(`You are pushing as: master`)
     var cmd = `git push origin -u master`;
   } else {
-    log(`You are pushing as :${colors.green(obj.branch.trim())}`);
+    log(`You are pushing as: ${colors.green(obj.branch.trim())}`);
     var cmd = `git push origin ${obj.branch.trim()}`;
   }
   E(cmd)
