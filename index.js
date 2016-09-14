@@ -30,10 +30,10 @@ function add(obj, callback) {
 function commit(obj, callback) {
   m4g1c(obj.message, false)
     .then((emojis) => {
-      log(`Your awesome commit message: ${colors.green(obj.message) + ' ' + emoji.emojify(emojis)}`)
       var randomEmoji = emoji.random();
-      randomEmoji = emoji.emojify(':' + randomEmoji.key +':' );
-      E(`git commit -m "${emoji.emojify(emojis)} ${emoji.emojify(obj.message)} ${randomEmoji}"`)
+      var text = `${emoji.emojify(emojis)} ${emoji.emojify(obj.message)} ${randomEmoji}`;
+      log(`Your awesome commit message: ${text}}`)
+      E(`git commit -m "${text}"`)
         .then((output) => {
           callback(null, obj);
         })
