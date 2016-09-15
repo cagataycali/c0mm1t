@@ -32,8 +32,8 @@ function commit(obj, callback) {
     .then((emojis) => {
       var randomEmoji = emoji.random();
       var pretext = ':' + randomEmoji.key + ':';
-      var text = `${emoji.emojify(emojis)} ${emoji.emojify(obj.message)} ${emoji.emojify(pretext)}`;
-      log(`Your awesome commit message: ${text}`)
+      var text = `${emoji.emojify(emojis)} ${emoji.emojify(obj.message.trim())} ${emoji.emojify(pretext)}`;
+      log(`Your awesome commit message: ${text.trim()}`)
       E(`git commit -m "${text}"`)
         .then((output) => {
           callback(null, obj);
