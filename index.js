@@ -9,6 +9,15 @@ var pkg = require('./package.json');
 var emoji = require('node-emoji');
 updateNotifier({pkg}).notify();
 
+function fix(text) {
+  if (text.indexOf('flag') !== -1) {
+    var newEmoji = emoji.random();
+    return fix(newEmoji.key);
+  } else {
+    return text;
+  }
+}
+
 function log(message) {
   console.log(emoji.emojify(':zap:'), colors.cyan(message));
 }
@@ -31,12 +40,8 @@ function commit(obj, callback) {
   m4g1c(obj.message, false)
     .then((emojis) => {
       var randomEmoji = emoji.random();
-      if (randomEmoji.key.indexOf('flag-') !== -1) {
-        console.log('Flag included');
-        randomEmoji = emoji.random();
-      }
-      var pretext = ':' + randomEmoji.key + ':';
-      var text = `${emoji.emojify(emojis)} ${emoji.emojify(obj.message.trim())} ${emoji.emojify(pretext)}`;
+      var pretext = ':' + fix(randomEmoji.key) + ':';
+      var text = `${emoji.emojify(emojis)}  ${emoji.emojify(obj.message.trim())} ${emoji.emojify(pretext)}`;
       log(`Your awesome commit message: ${colors.green(text.trim())}`)
       E(`git commit -m "${text}"`)
         .then((output) => {
