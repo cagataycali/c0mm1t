@@ -31,7 +31,8 @@ function commit(obj, callback) {
   m4g1c(obj.message, false)
     .then((emojis) => {
       var randomEmoji = emoji.random();
-      if (randomEmoji.key.indexOf('flag-')) {
+      if (randomEmoji.key.indexOf('flag-') !== -1) {
+        console.log('Flag included');
         randomEmoji = emoji.random();
       }
       var pretext = ':' + randomEmoji.key + ':';
