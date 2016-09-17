@@ -89,7 +89,7 @@ module.exports = function (obj) {
  return new Promise(function(resolve, reject) {
    var remote = async.compose(push, getCurrentBranch, commit, add);
    remote(obj, function (err, res) {
-     if (err) {reject(err);process.exit()}
+     if (err) {reject(err);}
      resolve(res);
    })
  });
