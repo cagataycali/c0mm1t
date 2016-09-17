@@ -1,6 +1,6 @@
 {
   "name": "c0mm1t",
-  "version": "1.0.42",
+  "version": "1.0.43",
   "description": "Git commit easily",
   "main": "index.js",
   "scripts": {
