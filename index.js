@@ -9,6 +9,8 @@ var pkg = require('./package.json');
 var emoji = require('node-emoji');
 updateNotifier({pkg}).notify();
 
+
+// Fix func.
 function fix(text) {
   if (text.indexOf('flag') !== -1) {
     var newEmoji = emoji.random();
