@@ -8,7 +8,7 @@ sudo npm i c0mm1t --save
 ```
 var C = require('c0mm1t');
 
-C('Init')
-  .then(function(value) {console.log(value)})
-  .catch(function(err) {console.log(err)})
+C({message:'Bug fixes', new: true})
+  .then(function (value) {console.log(value);})
+  .catch(function (err) {console.log(err);})
 ```
