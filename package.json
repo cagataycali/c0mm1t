@@ -23,12 +23,12 @@
   },
   "homepage": "https://github.com/cagataycali/c0mm1t#readme",
   "dependencies": {
-    "1n1t": "^1.0.24",
+    "1n1t": "^1.0.25",
     "3x3c": "^1.0.2",
-    "async": "^2.0.1",
+    "async": "^2.1.1",
     "br4nch": "^1.0.5",
     "colors": "^1.1.2",
-    "m4g1c": "^1.0.11",
+    "m4g1c": "^1.0.12",
     "node-emoji": "^1.4.1",
     "update-notifier": "^1.0.2"
   }
