@@ -1,5 +1,4 @@
 # Installing
-
 ```
 sudo npm i c0mm1t --save
 ```
