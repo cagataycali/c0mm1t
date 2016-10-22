@@ -75,12 +75,18 @@ function getCurrentBranch(obj, callback) {
 }
 
 function push(obj, callback) {
+  var origin;
+  E('git remote show')
+    .then((value) => {
+      origin = value.trim();
+    })
   if (obj.obj.new) {
     log(`You are pushing as: master`)
     var cmd = `git push origin -u master`;
   } else {
     log(`You are pushing as: ${colors.green(obj.branch.trim())}`);
-    var cmd = `git push origin ${obj.branch.trim()}`;
+    var cmd = `git push ${origin} ${obj.branch.trim()}`;
+    console.log(cmd);
   }
   E(cmd)
     .then((output) => {callback(null, obj.branch)})
