@@ -88,9 +88,10 @@ function push(obj, callback) {
     var cmd = `git push ${origin} ${obj.branch.trim()}`;
     console.log(cmd);
   }
-  E(cmd)
-    .then((output) => {callback(null, obj.branch)})
-    .catch((err) => {errorLog(err);callback(err, null);})
+  console.log(cmd);
+  // E(cmd)
+  //   .then((output) => {callback(null, obj.branch)})
+  //   .catch((err) => {errorLog(err);callback(err, null);})
 }
 
 module.exports = function (obj) {
