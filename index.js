@@ -79,7 +79,7 @@ function push(obj, callback) {
   E('git remote show')
     .then((value) => {
       origin = value.trim();
-      console.log(value);
+      console.log(value.trim());
     })
   if (obj.obj.new) {
     log(`You are pushing as: master`)
