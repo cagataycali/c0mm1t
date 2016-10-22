@@ -85,7 +85,6 @@ function push(obj, callback) {
       } else {
         log(`You are pushing as: ${colors.green(obj.branch.trim())}`);
         var cmd = `git push ${origin} ${obj.branch.trim()}`;
-        console.log(cmd);
       }
       E(cmd)
         .then((output) => {callback(null, obj.branch)})
