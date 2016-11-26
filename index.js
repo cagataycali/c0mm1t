@@ -79,6 +79,7 @@ function push(obj, callback) {
   E('git remote show')
     .then((value) => {
       origin = value.trim();
+      origin = origin.split('\n')[0];
       if (obj.obj.new) {
         log(`You are pushing as: master`)
         var cmd = `git push ${origin.trim()} -u master`;
