@@ -82,10 +82,10 @@ function push(obj, callback) {
       origin = value.trim();
       if (obj.obj.new) {
         log(`You are pushing as: master`)
-        var cmd = `git push ${origin} -u master`;
+        var cmd = `git push ${origin.trim()} -u master`;
       } else {
         log(`You are pushing as: ${colors.green(obj.branch.trim())}`);
-        var cmd = `git push ${origin} ${obj.branch.trim()}`;
+        var cmd = `git push ${origin.trim()} ${obj.branch.trim()}`;
       }
       E(cmd)
         .then((output) => {callback(null, obj.branch)})
