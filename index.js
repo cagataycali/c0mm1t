@@ -68,7 +68,6 @@ function getCurrentBranch(obj, callback) {
           obj : obj,
           branch: branch.trim()
         }
-        console.log(branch.trim());
          callback(null, objWithBranch)
       })
       .catch((err) => {errorLog(err);callback(err);})
